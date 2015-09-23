@@ -1,0 +1,33 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/xhtml" fx:controller="mealplanner.view.meal.MealEditController"
+            prefWidth="300" prefHeight="150">
+    <center>
+        <GridPane>
+            <padding>
+                <Insets left="5" right="5" top="5" bottom="5"/>
+            </padding>
+
+            <Label text="Name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="nameInput" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="150" fillWidth="true" halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+            </columnConstraints>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets left="5" right="5" top="5" bottom="5"/>
+            </padding>
+
+            <Button fx:id="saveButton" prefWidth="150" text="Save" onMousePressed="#save"/>
+            <Button fx:id="cancelButton" prefWidth="150" text="Cancel" onMousePressed="#cancel"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,51 @@
+<?language javascript?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/xhtml" fx:controller="mealplanner.view.MainController"
+        prefWidth="640" prefHeight="480">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="New" onAction="#newData"/>
+                <MenuItem text="Open" onAction="#loadData"/>
+                <MenuItem fx:id="saveMenuItem" text="Save" onAction="#save"/>
+                <MenuItem fx:id="saveAsMenuItem" text="Save As..." onAction="#saveAs"/>
+                <MenuItem text="Exit"/>
+            </Menu>
+            <Menu fx:id="classifiersMenuItem" text="Classifiers">
+                <MenuItem text="Diets" onAction="#showDiets"/>
+                <MenuItem text="Product Types" onAction="#showProductTypes"/>
+                <MenuItem text="Products" onAction="#showProducts"/>
+                <MenuItem text="Dishes" onAction="#showDishes"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox spacing="5">
+            <padding>
+                <Insets left="5" right="5" top="5" bottom="5"/>
+            </padding>
+
+            <HBox alignment="BASELINE_RIGHT" spacing="10">
+                <Button fx:id="addMealButton" text="Add Meal" prefWidth="120" onMouseClicked="#addMeal"/>
+                <Button fx:id="editMealButton" text="Edit Meal" prefWidth="120" onMouseClicked="#editSelectedMeal"/>
+                <Button fx:id="addDishesButton" text="Add Dishes" prefWidth="120" onMouseClicked="#addDish"/>
+                <Button fx:id="replaceDishButton" text="Replace Dish" prefWidth="120" onMouseClicked="#replaceDish"/>
+                <Button fx:id="removeButton" text="Remove" prefWidth="120" onMouseClicked="#remove"/>
+            </HBox>
+
+            <TreeTableView fx:id="mealTreeTable" showRoot="false" VBox.vgrow="ALWAYS">
+                <columnResizePolicy>
+                    <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TreeTableColumn fx:id="nameColumn" text="Name"/>
+                    <TreeTableColumn fx:id="quantityColumn" text="Quantity"/>
+                </columns>
+            </TreeTableView>
+        </VBox>
+    </center>
+</BorderPane>
