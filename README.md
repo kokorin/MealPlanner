@@ -1,0 +1,2 @@
+# MealPlanner
+Simple JavaFx project
